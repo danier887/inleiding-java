@@ -20,7 +20,7 @@ public class opdracht1 {
 
     //een methode die de inhoud van het scherm tekent
     public void paint(Graphics g) {
-        g.drawString("hallo ik ben danier barghouty", 50, 60);
+        g.drawString("hallo ik ben danier barghouty. github test.", 50, 60);
     }
 }
 
