@@ -5,14 +5,15 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class opdracht1 extends Applet {
-
+public class opdracht2 extends Applet {
 
     TextField tekstvak;
     boolean firstnumber;
-    int hoogste;
+    int getal1;
+    int getal2;
     int userinput;
     String sorry;
+
 
 
     public void init() {
@@ -21,7 +22,8 @@ public class opdracht1 extends Applet {
         tekstvak.addActionListener(new tekstlistener());
         add(tekstvak);
 
-        hoogste = 0;
+        getal1 = 0;
+        getal2 = 0;
         firstnumber = true;
         sorry = " ";
 
@@ -30,7 +32,8 @@ public class opdracht1 extends Applet {
 
     public void paint(Graphics g) {
 
-        g.drawString("hoogste getal:" + hoogste, 50, 100);
+        g.drawString("hoogste getal:" + getal1, 50, 100);
+        g.drawString("laagste getal:" + getal2, 60, 200);
         g.drawString(sorry, 50, 160);
 
 
@@ -46,15 +49,21 @@ public class opdracht1 extends Applet {
 
             if (firstnumber) {
                 firstnumber = false;
-                hoogste = userinput;
+                getal1 = userinput;
+                getal2 = userinput;
                 repaint();
 
             } else {
-                if (userinput > hoogste) {
-                    hoogste = userinput;
+                if (userinput > getal1) {
+                    getal1 = userinput;
                     sorry = " ";
+                } else if (userinput < getal2) {
+                    getal2 = userinput;
+                    sorry = "";
                     repaint();
-
+                } else {
+                    sorry = "sorry, maar " + userinput + " is niet hoger dan" + " is niet lager dan " + getal2;
+                    repaint();
 
                 }
 
